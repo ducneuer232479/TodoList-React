@@ -1,12 +1,13 @@
 function ListItem(props) {
   function handleClick(event) {
-    const clicked = event.target.closest("li");
+    const clicked = event.target;
     clicked.classList.toggle("checked");
   }
   function handleClose() {
     props.deleteTask(props.id);
   }
-  function handleUpdate() {
+  function handleUpdate(event) {
+    event.preventDefault();
     props.dataNeededUpdate("updateBtn", "Update", props.task, props.id);
   }
   return (

@@ -26,7 +26,7 @@ function FormAdd(props) {
     setValueInput(props.currentTask);
     setCurrClassBtn(props.classButton);
     setCurrContentBtn(props.contentButton);
-  }, [props.currentTask]);
+  }, [props.numberUpdate]);
 
   return (
     <div className="header" id="myDiv">

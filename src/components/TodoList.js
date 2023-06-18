@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FormAdd from "./FormAdd";
 import ListItem from "./ListItem";
 import data from "./data";
@@ -9,6 +9,7 @@ function TodoList() {
   const [contentButton, setContentButton] = useState("Add");
   const [currentTask, setCurrentTask] = useState("");
   const [currentId, setCurrentId] = useState(0);
+  const [numberUpdate, setNumberUpdate] = useState(0);
 
   function renderList() {
     const listItem = todoList.map(function (todo) {
@@ -52,17 +53,19 @@ function TodoList() {
     setTodoList(newTodoList);
   }
 
-  function dataNeededUpdate(classBtn, contentBtn, task, id) {
+  function dataNeededUpdate(classBtn, contentBtn, task, id, state) {
     setClassButton(classBtn);
     setContentButton(contentBtn);
     setCurrentTask(task);
     setCurrentId(id);
+    setNumberUpdate(numberUpdate + 1);
   }
 
   return (
     <div className="container">
       <FormAdd
         classButton={classButton}
+        numberUpdate={numberUpdate}
         contentButton={contentButton}
         addNewTask={addNewTask}
         currentTask={currentTask}
